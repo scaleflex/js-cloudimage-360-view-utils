@@ -13,3 +13,4 @@ export { addClass } from './utils/common/add-class';
 export { removeClass } from './utils/common/remove-class';
 export { getItemSkipped } from './utils/controls/get-item-skipped';
 export * from './utils/container-elements';
+export { loop } from './utils/auto-play/loop';
