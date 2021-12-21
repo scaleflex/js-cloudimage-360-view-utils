@@ -11,4 +11,5 @@ export { getMovingDirection } from './utils/spin-y/get-moving-direction';
 export { initControls } from './utils/controls/initControls';
 export { addClass } from './utils/common/add-class';
 export { removeClass } from './utils/common/remove-class';
+export { getItemSkipped } from './utils/controls/get-item-skipped';
 export * from './utils/container-elements';
