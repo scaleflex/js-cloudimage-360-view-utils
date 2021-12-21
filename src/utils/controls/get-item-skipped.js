@@ -1,7 +1,7 @@
-export const getItemSkipped = (movementStart, currentPosition, speedFactor) => {
-  const itemsSkippedTop = Math.floor(
-    (movementStart - currentPosition) / speedFactor,
+export const getItemSkipped = (currentPosition, movementStart, speedFactor) => {
+  const itemsSkipped = Math.floor(
+    (currentPosition - movementStart) / speedFactor,
   ) || 1;
 
-  return itemsSkippedTop;
+  return itemsSkipped;
 };
