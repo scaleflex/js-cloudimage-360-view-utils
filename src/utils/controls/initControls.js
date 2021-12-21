@@ -65,7 +65,7 @@ export const initControls = (controlsConfig, controlsTriggers) => {
 
   if (isReverse ? right : left) {
     if (stopAtEdges) {
-      addClass(isReverse ? right : left, 'not-active');
+      addClass(isReverse ? left : right, 'not-active');
     }
   }
 
