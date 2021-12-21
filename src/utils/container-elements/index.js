@@ -9,3 +9,4 @@ export { createMagnifierIcon } from './create-magnifier-icon';
 export { createBoxShadow } from './create-box-shadow';
 export { createLoader } from './create-loader';
 export { applyStylesToContainer } from './apply-styles-to-container';
+export { createFullscreenModal } from './create-fullscreen-modal';
