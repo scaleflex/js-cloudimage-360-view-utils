@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { loadImagesRelativeToContainerSize } from './load-images-relative-to-container-size';
 import { prepareImagesFromFolder } from './images-from-folder/prepare-images-from-folder';
 import { prepareImagesFromList } from './images-from-list/prepare-images-from-list';
