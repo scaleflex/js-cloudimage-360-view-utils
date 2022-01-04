@@ -1,12 +1,7 @@
-import { loadImage } from './load-image';
+import { loadImageAsPromise } from './load-image-as-promise';
 
-export const loadedOriginalImages = (imagesSrcs, srcConfig) => {
-  const originalImages = [];
-  imagesSrcs.forEach((src, index) => {
-    const image = loadImage(src, index, srcConfig);
-
-    originalImages.push(image);
-  });
-
-  return originalImages;
+export const loadOriginalImages = async (imagesSrcs, onImageLoadCallback) => {
+  await Promise.all(imagesSrcs.map(async (src, index) => {
+    await loadImageAsPromise(src, index, null, onImageLoadCallback);
+  }));
 };

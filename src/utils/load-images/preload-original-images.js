@@ -1,9 +1,9 @@
 /* eslint-disable no-console */
-import { loadImagesRelativeToContainerSize } from './load-images-relative-to-container-size';
 import { prepareImagesFromFolder } from './images-from-folder/prepare-images-from-folder';
 import { prepareImagesFromList } from './images-from-list/prepare-images-from-list';
+import { loadOriginalImages } from './load-original-images';
 
-export const preloadImages = (srcConfig, imagesSrc, onImageLoadCallback) => {
+export const preloadOriginalImages = (srcConfig, imagesSrc, onImageLoadCallback) => {
   const { imageList } = srcConfig || {};
   let imagesSets = {};
 
@@ -19,7 +19,7 @@ export const preloadImages = (srcConfig, imagesSrc, onImageLoadCallback) => {
     imagesSets = prepareImagesFromFolder(imagesSrc, srcConfig);
   }
 
-  const { resultSrc } = imagesSets || {};
+  const { originalSrc } = imagesSets || {};
 
-  loadImagesRelativeToContainerSize(resultSrc, srcConfig, onImageLoadCallback);
+  loadOriginalImages(originalSrc, onImageLoadCallback);
 };

@@ -1,5 +1,6 @@
 export { generateImagesPath } from './utils/image-src/generate-images-path';
 export { preloadImages } from './utils/load-images/preload-images';
+export { preloadOriginalImages } from './utils/load-images/preload-original-images';
 export { contain } from './utils/responsive/contain';
 export { getCurrentOriginalImage } from './utils/magnify/get-current-original-image';
 export { magnify } from './utils/magnify/magnify';
