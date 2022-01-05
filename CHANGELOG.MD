@@ -25,7 +25,7 @@ Types of changes:
 - ...
 
 -------------
-# 1.0.0 - 2021-01-03
+# 1.0.0 - 2021-01-05
 ### ADDED
 - images prepartion and loading happen in the utils
 - moved plugin controls to utils
@@ -33,3 +33,4 @@ Types of changes:
 - handle autoplay in utils
 - handle spin-y in utils
 - handle magnify in utils
+- transition on zoom canvas drawn image
