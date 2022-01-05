@@ -37,8 +37,8 @@ export const initControls = (controlsConfig, controlsTriggers) => {
     right.style.display = 'block';
     right.addEventListener('mousedown', isReverse ? onLeftStart : onRightStart);
     right.addEventListener('touchstart', isReverse ? onLeftStart : onRightStart, { passive: true });
-    right.addEventListener('mouseup', isReverse ? onEventEnd : onEventEnd);
-    right.addEventListener('touchend', isReverse ? onEventEnd : onEventEnd);
+    right.addEventListener('mouseup', onEventEnd);
+    right.addEventListener('touchend', onEventEnd);
 
     controlElements.right = right;
   }
@@ -65,8 +65,8 @@ export const initControls = (controlsConfig, controlsTriggers) => {
 
   if (isReverse ? right : left) {
     if (stopAtEdges) {
-      addClass(isReverse ? left : right, 'not-active');
-      addClass(isReverse ? bottom : top, 'not-active');
+      addClass(isReverse ? right : left, 'not-active');
+      addClass(isReverse ? top : bottom, 'not-active');
     }
   }
 
