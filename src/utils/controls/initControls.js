@@ -13,11 +13,9 @@ export const initControls = (controlsConfig, controlsTriggers) => {
   const controlElements = {};
   const isReverse = controlReverse ? !spinReverse : spinReverse;
 
-  const left = container.querySelector('.cloudimage-360-left')
-  || container.querySelector('.cloudimage-360-prev');
+  const left = container.querySelectorAll('.cloudimage-360-left, .cloudimage-360-prev')[0];
 
-  const right = container.querySelector('.cloudimage-360-right')
-  || container.querySelector('.cloudimage-360-next');
+  const right = container.querySelectorAll('.cloudimage-360-right, .cloudimage-360-next')[0];
 
   const top = container.querySelector('.cloudimage-360-top');
 
