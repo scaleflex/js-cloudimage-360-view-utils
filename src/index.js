@@ -15,3 +15,5 @@ export { removeClass } from './utils/common/remove-class';
 export { getItemSkipped } from './utils/controls/get-item-skipped';
 export * from './utils/container-elements';
 export { loop } from './utils/auto-play/loop';
+export { generateZoomInSteps } from './utils/zoom/generate-zoom-in-steps';
+export { generateZoomOutSteps } from './utils/zoom/generate-zoom-out-steps';
