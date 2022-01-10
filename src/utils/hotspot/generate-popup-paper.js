@@ -1,16 +1,27 @@
-export const generatePopupPaper = (popupNode, paperProps) => {
-  const { paperClass = '' } = paperProps;
+import { createPopupArrow } from './icons/create-popup-arrow';
 
-  const hotspotPopup = popupNode.cloneNode(true);
-  const hotspotPopupPaper = document.createElement('div');
+export const generatePopupPaper = (container, popupNode, paperConfig) => {
+  const { paperClass, arrow } = paperConfig;
 
-  hotspotPopupPaper.className = `cloudimage-360-hotspot-popup-paper ${paperClass}`;
-  hotspotPopupPaper.style.minHeight = 16;
-  hotspotPopupPaper.style.minWidth = 16;
+  const popup = popupNode.cloneNode(true);
+  const popupPaper = document.createElement('div');
 
-  hotspotPopupPaper.appendChild(hotspotPopup);
+  popupPaper.className = `cloudimage-360-hotspot-popup-paper ${paperClass}`;
+
+  popupPaper.style.minHeight = 16;
+  popupPaper.style.minWidth = 16;
+
+  popupPaper.appendChild(popup);
+
+  if (arrow) {
+    const popupArrow = createPopupArrow();
+
+    popupPaper.appendChild(popupArrow);
+  }
 
   popupNode.parentNode.removeChild(popupNode);
 
-  return hotspotPopupPaper;
+  container.appendChild(popupPaper);
+
+  return popupPaper;
 };
