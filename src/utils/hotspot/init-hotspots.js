@@ -3,6 +3,7 @@ import { deleteHotspotsIcons } from './delete-hotspots-icons';
 import { getHotspotPopupNode } from './get-hotspot-popup-node';
 import { createPopperInstance } from './create-popper-instace';
 import { attachPopupEvents } from './attach-popup-events';
+import { prepareHotspotsPositions } from './prepare-hotspots-positions';
 
 export const initHotspots = (container, hotspotsConfigs, currentImage) => {
   hotspotsConfigs.forEach((hotspotConfig) => {
@@ -31,8 +32,10 @@ export const initHotspots = (container, hotspotsConfigs, currentImage) => {
 
     deleteHotspotsIcons(anchorID);
 
+    const hotspotsPositions = prepareHotspotsPositions(hotspots);
+
     if (type === 'link') {
-      hotspots.forEach((hotspot) => {
+      hotspotsPositions.forEach((hotspot) => {
         const { imageIndex = -1, xCoord = 0, yCoord = 0 } = hotspot;
 
         if (imageIndex === currentImage) {
