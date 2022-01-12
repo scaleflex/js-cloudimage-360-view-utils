@@ -1,12 +1,16 @@
+import { getPopupNode } from './get-popup-node';
 import { createPopupArrow } from './icons/create-popup-arrow';
 
-export const generatePopupPaper = (container, popupNode, paperConfig) => {
-  const { paperClass, arrow } = paperConfig;
+export const generatePopupPaper = (container, paperConfig) => {
+  const { paperClass, arrow, anchorID } = paperConfig;
+
+  const popupNode = getPopupNode(anchorID);
 
   const popup = popupNode.cloneNode(true);
   const popupPaper = document.createElement('div');
 
   popupPaper.className = `cloudimage-360-hotspot-popup-paper ${paperClass}`;
+  popupPaper.setAttribute('data-hotspot-paper-id', anchorID);
 
   popupPaper.style.minHeight = 16;
   popupPaper.style.minWidth = 16;

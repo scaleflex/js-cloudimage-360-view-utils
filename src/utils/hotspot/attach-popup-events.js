@@ -1,16 +1,16 @@
 
-export const attachPopupEvents = (reference, popup, popperInstance) => {
+export const attachPopupEvents = (reference, popper, popperInstance) => {
   const showEvents = ['mouseenter', 'focus'];
   const hideEvents = ['mouseleave', 'blur'];
 
   const showPopup = () => {
-    popup.setAttribute('data-show', '');
+    popper.setAttribute('data-show', '');
 
     popperInstance.update();
   };
 
   const hidePopup = () => {
-    popup.removeAttribute('data-show');
+    popper.removeAttribute('data-show');
 
     popperInstance.setOptions((options) => ({
       ...options,
