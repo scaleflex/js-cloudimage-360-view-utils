@@ -14,6 +14,7 @@ export const generatePopupPaper = (container, paperConfig) => {
 
   popupPaper.style.minHeight = 16;
   popupPaper.style.minWidth = 16;
+  popupPaper.style.cursor = 'initial';
 
   popupPaper.appendChild(popup);
 

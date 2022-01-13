@@ -2,6 +2,7 @@
 export const attachPopupEvents = (reference, popper, popperInstance) => {
   const showEvents = ['mouseenter', 'focus'];
   const hideEvents = ['mouseleave', 'blur'];
+  let isVisible;
 
   const showPopup = () => {
     popper.setAttribute('data-show', '');
@@ -10,15 +11,25 @@ export const attachPopupEvents = (reference, popper, popperInstance) => {
   };
 
   const hidePopup = () => {
-    popper.removeAttribute('data-show');
+    setTimeout(() => {
+      if (!isVisible) {
+        popper.removeAttribute('data-show');
 
-    popperInstance.setOptions((options) => ({
-      ...options,
-      modifiers: [
-        ...options.modifiers,
-        { name: 'eventListeners', enabled: false },
-      ],
-    }));
+        popperInstance.setOptions((options) => ({
+          ...options,
+          modifiers: [
+            ...options.modifiers,
+            { name: 'eventListeners', enabled: false },
+          ],
+        }));
+      } else {
+        isVisible = false;
+      }
+    }, 120);
+  };
+
+  const keepPopupShown = () => {
+    isVisible = true;
   };
 
   showEvents.forEach((event) => {
@@ -28,4 +39,7 @@ export const attachPopupEvents = (reference, popper, popperInstance) => {
   hideEvents.forEach((event) => {
     reference.addEventListener(event, hidePopup);
   });
+
+  popper.addEventListener('mouseenter', keepPopupShown);
+  popper.addEventListener('mouseleave', hidePopup);
 };

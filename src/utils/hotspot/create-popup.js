@@ -7,8 +7,10 @@ export const createPopup = (container, hotspotsConfigs) => {
     const {
       paperClass = '',
       arrow = false,
-      anchorID = '',
+      anchorID,
     } = paperProps;
+
+    if (!anchorID) return;
 
     const paperConfig = {
       paperClass,

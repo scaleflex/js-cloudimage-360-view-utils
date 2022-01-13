@@ -4,19 +4,22 @@ import { getHotspotPopupNode } from './get-hotspot-popup-node';
 import { createPopperInstance } from './create-popper-instace';
 import { attachPopupEvents } from './attach-popup-events';
 import { prepareHotspotsPositions } from './prepare-hotspots-positions';
+import { generateDefaultPopupPapper } from './generate-default-popup-papper';
 
 export const initHotspots = (container, hotspotsConfigs, currentImage) => {
   hotspotsConfigs.forEach((hotspotConfig) => {
     const {
-      type, paperProps = {}, hotspots = [], iconClass = '',
+      type = 'link', paperProps = {}, hotspots = [], iconClass = '', link, title,
     } = hotspotConfig;
+
+    let popupPaper;
 
     const {
       paperClass = '',
       arrow = false,
       offset = [0, 20],
       placement = 'auto',
-      anchorID = '',
+      anchorID,
     } = paperProps;
 
     const paperConfig = {
@@ -27,7 +30,12 @@ export const initHotspots = (container, hotspotsConfigs, currentImage) => {
       anchorID,
     };
 
-    const popupPaper = getHotspotPopupNode(anchorID);
+    if (!anchorID) {
+      popupPaper = generateDefaultPopupPapper(container, paperConfig, link, title);
+    } else {
+      popupPaper = getHotspotPopupNode(anchorID);
+    }
+
     const popperInstance = createPopperInstance(popupPaper, paperConfig, container);
 
     deleteHotspotsIcons(anchorID);
