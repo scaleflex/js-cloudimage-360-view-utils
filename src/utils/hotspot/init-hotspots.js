@@ -9,7 +9,7 @@ import { generateDefaultPopupPapper } from './generate-default-popup-papper';
 export const initHotspots = (container, hotspotsConfigs, currentImage) => {
   hotspotsConfigs.forEach((hotspotConfig) => {
     const {
-      type = 'link', paperProps = {}, hotspots = [], iconClass = '', link, title,
+      type = 'link', paperProps = {}, hotspots = [], iconClass = '', url = '', title = '', newTab = false,
     } = hotspotConfig;
 
     let popupPaper;
@@ -17,7 +17,7 @@ export const initHotspots = (container, hotspotsConfigs, currentImage) => {
     const {
       paperClass = '',
       arrow = false,
-      offset = [0, 20],
+      offset = [0, 10],
       placement = 'auto',
       anchorID,
     } = paperProps;
@@ -31,7 +31,7 @@ export const initHotspots = (container, hotspotsConfigs, currentImage) => {
     };
 
     if (!anchorID) {
-      popupPaper = generateDefaultPopupPapper(container, paperConfig, link, title);
+      popupPaper = generateDefaultPopupPapper(container, paperConfig, url, title, newTab);
     } else {
       popupPaper = getHotspotPopupNode(anchorID);
     }

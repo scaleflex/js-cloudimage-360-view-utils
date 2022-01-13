@@ -25,7 +25,7 @@ export const attachPopupEvents = (reference, popper, popperInstance) => {
       } else {
         isVisible = false;
       }
-    }, 120);
+    }, 160);
   };
 
   const keepPopupShown = () => {
