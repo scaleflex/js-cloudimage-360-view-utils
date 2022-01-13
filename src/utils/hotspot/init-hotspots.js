@@ -1,15 +1,16 @@
-import { createLinkIcon } from './icons/create-link-icon';
+import { createHotspotIcon } from './icons/create-hotspot-icon';
 import { deleteHotspotsIcons } from './delete-hotspots-icons';
 import { getHotspotPopupNode } from './get-hotspot-popup-node';
 import { createPopperInstance } from './create-popper-instace';
 import { attachPopupEvents } from './attach-popup-events';
 import { prepareHotspotsPositions } from './prepare-hotspots-positions';
 import { generateDefaultPopupPapper } from './generate-default-popup-papper';
+import { getHotspotVariant } from './get-hotspot-variant';
 
 export const initHotspots = (container, hotspotsConfigs, currentImage) => {
   hotspotsConfigs.forEach((hotspotConfig) => {
     const {
-      type = 'link', paperProps = {}, hotspots = [], iconClass = '', url = '', title = '', newTab = false,
+      variant = 'link', paperProps = {}, hotspots = [], iconClass = '', url = '', title = '', newTab = false,
     } = hotspotConfig;
 
     let popupPaper;
@@ -41,28 +42,28 @@ export const initHotspots = (container, hotspotsConfigs, currentImage) => {
     deleteHotspotsIcons(anchorID);
 
     const hotspotsPositions = prepareHotspotsPositions(hotspots);
+    const hotspotVariant = getHotspotVariant(variant);
 
-    if (type === 'link') {
-      hotspotsPositions.forEach((hotspot) => {
-        const { imageIndex = -1, xCoord = 0, yCoord = 0 } = hotspot;
+    hotspotsPositions.forEach((hotspot) => {
+      const { imageIndex = -1, xCoord = 0, yCoord = 0 } = hotspot;
 
-        if (imageIndex === currentImage) {
-          const linkIcon = createLinkIcon(
-            container,
-            xCoord,
-            yCoord,
-            iconClass,
-            paperConfig,
-          );
+      if (imageIndex === currentImage) {
+        const icon = createHotspotIcon(
+          container,
+          xCoord,
+          yCoord,
+          iconClass,
+          paperConfig,
+          hotspotVariant,
+        );
 
-          popperInstance.state.elements.reference = linkIcon;
-          popperInstance.update();
+        popperInstance.state.elements.reference = icon;
+        popperInstance.update();
 
-          attachPopupEvents(linkIcon, popupPaper, popperInstance);
-        } else {
-          popupPaper.removeAttribute('data-show');
-        }
-      });
-    }
+        attachPopupEvents(icon, popupPaper, popperInstance);
+      } else {
+        popupPaper.removeAttribute('data-show');
+      }
+    });
   });
 };
