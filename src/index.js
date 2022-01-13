@@ -18,4 +18,5 @@ export { loop } from './utils/auto-play/loop';
 export { generateZoomInSteps } from './utils/zoom/generate-zoom-in-steps';
 export { generateZoomOutSteps } from './utils/zoom/generate-zoom-out-steps';
 export { initHotspots } from './utils/hotspot/init-hotspots';
-export { createPopup } from './utils/hotspot/create-popup';
+export { createHotspotsPopups } from './utils/hotspot/create-hotspots-popups';
+export { generateHotspotsConfigs } from './utils/hotspot/generate-hotspots-configs';

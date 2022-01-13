@@ -1,5 +1,5 @@
-export const createHotspotIcon = (container, xCoord, yCoord, iconClass, paperConfig, hotspotVariant) => {
-  const { anchorID } = paperConfig;
+export const createHotspotIcon = (container, xCoord, yCoord, iconClass, paperProps, hotspotVariant) => {
+  const { anchorID } = paperProps;
 
   const hotspotIcon = document.createElement('div');
 

@@ -4,40 +4,24 @@ import { getHotspotPopupNode } from './get-hotspot-popup-node';
 import { createPopperInstance } from './create-popper-instace';
 import { attachPopupEvents } from './attach-popup-events';
 import { prepareHotspotsPositions } from './prepare-hotspots-positions';
-import { generateDefaultPopupPapper } from './generate-default-popup-papper';
 import { getHotspotVariant } from './get-hotspot-variant';
 
-export const initHotspots = (container, hotspotsConfigs, currentImage) => {
-  hotspotsConfigs.forEach((hotspotConfig) => {
+export const initHotspots = (container, hotspotsProps, currentImage) => {
+  hotspotsProps.forEach((hotspotProps) => {
+    const hotspotConfig = hotspotProps;
     const {
-      variant = 'link', paperProps = {}, hotspots = [], iconClass = '', url = '', title = '', newTab = false,
+      paperProps,
+      open,
+      hotspots,
+      variant,
+      iconClass,
     } = hotspotConfig;
 
-    let popupPaper;
+    const { anchorID } = paperProps;
 
-    const {
-      paperClass = '',
-      arrow = false,
-      offset = [0, 10],
-      placement = 'auto',
-      anchorID,
-    } = paperProps;
+    const popupPaper = getHotspotPopupNode(anchorID);
 
-    const paperConfig = {
-      paperClass,
-      arrow,
-      offset,
-      placement,
-      anchorID,
-    };
-
-    if (!anchorID) {
-      popupPaper = generateDefaultPopupPapper(container, paperConfig, url, title, newTab);
-    } else {
-      popupPaper = getHotspotPopupNode(anchorID);
-    }
-
-    const popperInstance = createPopperInstance(popupPaper, paperConfig, container);
+    const popperInstance = createPopperInstance(popupPaper, paperProps, container);
 
     deleteHotspotsIcons(anchorID);
 
@@ -53,14 +37,14 @@ export const initHotspots = (container, hotspotsConfigs, currentImage) => {
           xCoord,
           yCoord,
           iconClass,
-          paperConfig,
+          paperProps,
           hotspotVariant,
         );
 
         popperInstance.state.elements.reference = icon;
         popperInstance.update();
 
-        attachPopupEvents(icon, popupPaper, popperInstance);
+        attachPopupEvents(icon, popupPaper, popperInstance, open);
       } else {
         popupPaper.removeAttribute('data-show');
       }
