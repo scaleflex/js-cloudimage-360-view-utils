@@ -8,6 +8,7 @@ export const generatePaperConfig = (paperProps) => {
     offset = [0, 10],
     placement = 'auto',
     anchorID = defaultAnchorID,
+    open = false,
   } = paperProps;
 
 
@@ -17,6 +18,7 @@ export const generatePaperConfig = (paperProps) => {
     offset,
     placement,
     anchorID,
+    open,
   };
 
   return paperConfig;

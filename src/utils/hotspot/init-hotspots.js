@@ -11,15 +11,14 @@ export const initHotspots = (container, hotspotsProps, currentImage) => {
     const hotspotConfig = hotspotProps;
     const {
       paperProps,
-      open,
       hotspots,
       variant,
       iconClass,
     } = hotspotConfig;
 
-    const { anchorID } = paperProps;
+    const { anchorID, open } = paperProps;
 
-    const popupPaper = getHotspotPopupNode(anchorID);
+    const popupPaper = getHotspotPopupNode(anchorID, open);
 
     const popperInstance = createPopperInstance(popupPaper, paperProps, container);
 
@@ -45,7 +44,7 @@ export const initHotspots = (container, hotspotsProps, currentImage) => {
         popperInstance.update();
 
         attachPopupEvents(icon, popupPaper, popperInstance, open);
-      } else {
+      } else if (!open) {
         popupPaper.removeAttribute('data-show');
       }
     });

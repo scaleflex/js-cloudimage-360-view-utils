@@ -9,7 +9,6 @@ export const generateHotspotsConfigs = (hotspotsProps) => {
       url = '',
       title = '',
       newTab = false,
-      open = false,
       paperProps = {},
     } = hotspotProps;
 
@@ -23,7 +22,6 @@ export const generateHotspotsConfigs = (hotspotsProps) => {
       url,
       title,
       newTab,
-      open,
     };
 
     return hotspotConfig;
