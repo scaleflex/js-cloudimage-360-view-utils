@@ -20,3 +20,4 @@ export { generateZoomOutSteps } from './utils/zoom/generate-zoom-out-steps';
 export { initHotspots } from './utils/hotspot/init-hotspots';
 export { createHotspotsPopups } from './utils/hotspot/create-hotspots-popups';
 export { generateHotspotsConfigs } from './utils/hotspot/generate-hotspots-configs';
+export { isMouseOnHotspot } from './utils/hotspot/is-mouse-on-hotspot';

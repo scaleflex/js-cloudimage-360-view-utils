@@ -12,6 +12,7 @@ export const generatePopupPaper = (container, hotspotConfig, paperProps) => {
 
   popupPaper.className = `cloudimage-360-hotspot-popup-paper ${paperClass}`;
   popupPaper.setAttribute('data-hotspot-paper-id', anchorID);
+  popupPaper.setAttribute('data-cloudimage-360-hotspot', '');
 
   popupPaper.style.minHeight = 16;
   popupPaper.style.minWidth = 16;

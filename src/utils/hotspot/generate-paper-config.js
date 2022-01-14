@@ -1,6 +1,6 @@
 export const generatePaperConfig = (paperProps) => {
   const uniqueID = Math.floor(Math.random() * 10000);
-  const defaultAnchorID = `CI-${uniqueID}`;
+  const defaultAnchorID = `cloudimage-${uniqueID}`;
 
   const {
     paperClass = '',

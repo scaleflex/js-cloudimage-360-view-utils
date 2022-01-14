@@ -8,6 +8,7 @@ export const attachPopupEvents = (reference, popper, popperInstance, open) => {
 
   const showPopup = () => {
     popper.setAttribute('data-show', '');
+    popper.setAttribute('data-cloudimage-360-show', '');
 
     popperInstance.update();
   };
@@ -16,6 +17,7 @@ export const attachPopupEvents = (reference, popper, popperInstance, open) => {
     setTimeout(() => {
       if (!isVisible) {
         popper.removeAttribute('data-show');
+        popper.removeAttribute('data-cloudimage-360-show');
 
         popperInstance.setOptions((options) => ({
           ...options,

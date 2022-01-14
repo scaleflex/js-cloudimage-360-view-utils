@@ -8,11 +8,24 @@ export const createHotspotIcon = (container, xCoord, yCoord, iconClass, paperPro
     hotspotIcon.style.top = `calc(${yCoord} - ${hotspotIcon.offsetHeight / 2}px)`;
   });
 
+  const mouseEnterHotspot = () => {
+    hotspotIcon.setAttribute('data-cloudimage-360-show', '');
+  };
+
+  const mouseLeaveHotspot = () => {
+    hotspotIcon.removeAttribute('data-cloudimage-360-show');
+  };
+
   resizeObserver.observe(container);
   hotspotIcon.style.position = 'absolute';
 
   hotspotIcon.className = `cloudimage-360-hotspot-${hotspotVariant}-icon ${iconClass}`;
   hotspotIcon.setAttribute('data-hotspot-icon-id', anchorID);
+  hotspotIcon.setAttribute('data-cloudimage-360-hotspot', '');
+
+  hotspotIcon.addEventListener('mouseenter', mouseEnterHotspot);
+  hotspotIcon.addEventListener('mouseleave', mouseLeaveHotspot);
+
 
   container.appendChild(hotspotIcon);
 
