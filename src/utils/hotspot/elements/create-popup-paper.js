@@ -1,9 +1,9 @@
 import { createHotspotPopupLink } from './create-hotspot-popup-link';
-import { getHotspotVariant } from './get-hotspot-variant';
-import { getPopupNode } from './get-popup-node';
-import { createPopupArrow } from './icons/create-popup-arrow';
+import { getHotspotVariant } from '../get-hotspot-variant';
+import { getPopupNode } from '../get-popup-node';
+import { createPopupArrow } from './create-popup-arrow';
 
-export const generatePopupPaper = (container, hotspotConfig, paperProps) => {
+export const createPopupPaper = (container, hotspotConfig, paperProps) => {
   const { variant } = hotspotConfig;
   const { paperClass, arrow, anchorID } = paperProps;
   const hotspotVariant = getHotspotVariant(variant);

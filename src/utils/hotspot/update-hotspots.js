@@ -1,4 +1,4 @@
-import { createHotspotIcon } from './icons/create-hotspot-icon';
+import { createHotspotIcon } from './elements/create-hotspot-icon';
 import { deleteHotspotsIcons } from './delete-hotspots-icons';
 import { getHotspotPopupNode } from './get-hotspot-popup-node';
 import { createPopperInstance } from './create-popper-instace';
@@ -6,7 +6,7 @@ import { attachPopupEvents } from './attach-popup-events';
 import { prepareHotspotsPositions } from './prepare-hotspots-positions';
 import { getHotspotVariant } from './get-hotspot-variant';
 
-export const initHotspots = (container, hotspotsProps, currentImage) => {
+export const updateHotspots = (container, hotspotsProps, currentImage) => {
   hotspotsProps.forEach((hotspotProps) => {
     const hotspotConfig = hotspotProps;
     const {

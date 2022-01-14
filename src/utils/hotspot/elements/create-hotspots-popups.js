@@ -1,4 +1,4 @@
-import { generatePopupPaper } from './generate-popup-paper';
+import { createPopupPaper } from './create-popup-paper';
 
 export const createHotspotsPopups = (container, hotspotsProps) => {
   hotspotsProps.forEach((hotspotProps) => {
@@ -6,6 +6,6 @@ export const createHotspotsPopups = (container, hotspotsProps) => {
     const { paperProps } = hotspotConfig;
 
 
-    generatePopupPaper(container, hotspotConfig, paperProps);
+    createPopupPaper(container, hotspotConfig, paperProps);
   });
 };
