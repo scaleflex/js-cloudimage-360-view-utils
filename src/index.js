@@ -18,6 +18,6 @@ export { loop } from './utils/auto-play/loop';
 export { generateZoomInSteps } from './utils/zoom/generate-zoom-in-steps';
 export { generateZoomOutSteps } from './utils/zoom/generate-zoom-out-steps';
 export { updateHotspots } from './utils/hotspot/update-hotspots';
-export { createHotspotsPopups } from './utils/hotspot/elements/create-hotspots-popups';
+export { createHotspots } from './utils/hotspot/elements/create-hotspots';
 export { generateHotspotsConfigs } from './utils/hotspot/generate-hotspots-configs';
 export { isMouseOnHotspot } from './utils/hotspot/is-mouse-on-hotspot';

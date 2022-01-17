@@ -1,12 +1,15 @@
-export const createHotspotIcon = (container, xCoord, yCoord, iconClass, paperProps, hotspotVariant) => {
+import { getHotspotVariant } from '../get-hotspot-variant';
+import { hideHotspotIcon } from '../hide-hotspot-icon';
+
+export const createHotspotIcon = (container, hotspotConfig) => {
+  const {
+    iconClass, paperProps, variant,
+  } = hotspotConfig;
   const { anchorID } = paperProps;
 
-  const hotspotIcon = document.createElement('div');
+  const hotspotVariant = getHotspotVariant(variant);
 
-  const resizeObserver = new ResizeObserver(() => {
-    hotspotIcon.style.left = `calc(${xCoord} - ${hotspotIcon.offsetWidth / 2}px)`;
-    hotspotIcon.style.top = `calc(${yCoord} - ${hotspotIcon.offsetHeight / 2}px)`;
-  });
+  const hotspotIcon = document.createElement('div');
 
   const mouseEnterHotspot = () => {
     hotspotIcon.setAttribute('data-cloudimage-360-show', '');
@@ -16,19 +19,19 @@ export const createHotspotIcon = (container, xCoord, yCoord, iconClass, paperPro
     hotspotIcon.removeAttribute('data-cloudimage-360-show');
   };
 
-  resizeObserver.observe(container);
   hotspotIcon.style.position = 'absolute';
 
   hotspotIcon.className = `cloudimage-360-hotspot-${hotspotVariant}-icon ${iconClass}`;
+
   hotspotIcon.setAttribute('data-hotspot-icon-id', anchorID);
   hotspotIcon.setAttribute('data-cloudimage-360-hotspot', '');
 
   hotspotIcon.addEventListener('mouseenter', mouseEnterHotspot);
   hotspotIcon.addEventListener('mouseleave', mouseLeaveHotspot);
 
+  hideHotspotIcon(hotspotIcon);
 
   container.appendChild(hotspotIcon);
-
 
   return hotspotIcon;
 };
