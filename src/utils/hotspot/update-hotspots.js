@@ -8,20 +8,20 @@ import { hideHotspotIcon } from './hide-hotspot-icon';
 
 export const updateHotspots = (container, hotspotsProps, currentImage) => {
   hotspotsProps.forEach((hotspotProps) => {
-    const { paperProps, hotspots, initialDimensions } = hotspotProps;
+    const { popupProps, hotspots, initialDimensions } = hotspotProps;
 
-    const { anchorID, open } = paperProps;
+    const { anchorID, open } = popupProps;
 
-    const popupPaper = getHotspotPopupNode(anchorID, open);
+    const popup = getHotspotPopupNode(anchorID, open);
     const hotspotIcon = getHotspotIcon(anchorID);
     const hotspotsPositions = prepareHotspotsPositions(hotspots);
 
-    const popperInstance = createPopperInstance(popupPaper, paperProps, container);
+    const popperInstance = createPopperInstance(popup, popupProps, container);
 
     popperInstance.state.elements.reference = hotspotIcon;
     popperInstance.update();
 
-    attachPopupEvents(hotspotIcon, popupPaper, popperInstance, open);
+    attachPopupEvents(hotspotIcon, popup, popperInstance, open);
 
     const currentPosition = hotspotsPositions
       .find((hotspotPosition) => hotspotPosition.imageIndex === currentImage);

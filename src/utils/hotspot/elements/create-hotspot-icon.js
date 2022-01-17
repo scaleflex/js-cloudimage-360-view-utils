@@ -3,9 +3,9 @@ import { hideHotspotIcon } from '../hide-hotspot-icon';
 
 export const createHotspotIcon = (container, hotspotConfig) => {
   const {
-    iconClass, paperProps, variant,
+    iconClass, popupProps, variant,
   } = hotspotConfig;
-  const { anchorID } = paperProps;
+  const { anchorID } = popupProps;
 
   const hotspotVariant = getHotspotVariant(variant);
 
@@ -20,7 +20,6 @@ export const createHotspotIcon = (container, hotspotConfig) => {
   };
 
   hotspotIcon.style.position = 'absolute';
-
   hotspotIcon.className = `cloudimage-360-hotspot-${hotspotVariant}-icon ${iconClass}`;
 
   hotspotIcon.setAttribute('data-hotspot-icon-id', anchorID);

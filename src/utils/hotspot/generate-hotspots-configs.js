@@ -1,4 +1,4 @@
-import { generatePaperConfig } from './generate-paper-config';
+import { generatePopupConfig } from './generate-popup-config';
 
 export const generateHotspotsConfigs = (hotspotsProps) => {
   const hotspotsConfigs = hotspotsProps.map((hotspotProps) => {
@@ -9,15 +9,15 @@ export const generateHotspotsConfigs = (hotspotsProps) => {
       url = '',
       title = '',
       newTab = false,
-      paperProps = {},
+      popupProps = {},
       initialDimensions = [500, 500],
     } = hotspotProps;
 
-    const paperConfig = generatePaperConfig(paperProps);
+    const popupConfig = generatePopupConfig(popupProps);
 
     const hotspotConfig = {
       variant,
-      paperProps: paperConfig,
+      popupProps: popupConfig,
       hotspots,
       iconClass,
       url,

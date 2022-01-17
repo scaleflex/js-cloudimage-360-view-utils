@@ -1,19 +1,19 @@
-export const generatePaperConfig = (paperProps) => {
+export const generatePopupConfig = (popupProps) => {
   const uniqueID = Math.floor(Math.random() * 10000);
   const defaultAnchorID = `cloudimage-${uniqueID}`;
 
   const {
-    paperClass = '',
+    popupClass = '',
     arrow = false,
     offset = [0, 10],
     placement = 'auto',
     anchorID = defaultAnchorID,
     open = false,
-  } = paperProps;
+  } = popupProps;
 
 
-  const paperConfig = {
-    paperClass,
+  const popupConfig = {
+    popupClass,
     arrow,
     offset,
     placement,
@@ -21,5 +21,5 @@ export const generatePaperConfig = (paperProps) => {
     open,
   };
 
-  return paperConfig;
+  return popupConfig;
 };

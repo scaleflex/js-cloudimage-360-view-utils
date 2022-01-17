@@ -1,7 +1,7 @@
 import { createPopper } from '@popperjs/core';
 
-export const createPopperInstance = (popper, paperProps, container) => {
-  const { placement, offset } = paperProps;
+export const createPopperInstance = (popper, popupProps, container) => {
+  const { placement, offset } = popupProps;
 
   const virtualReference = document.createElement('div');
 

@@ -1,5 +1,5 @@
 export const getHotspotPopupNode = (anchorID, open) => {
-  const hotspotPopupSelector = `[data-hotspot-paper-id=${anchorID}]`;
+  const hotspotPopupSelector = `[data-hotspot-popup-id=${anchorID}]`;
   const hotspotPopup = document.querySelector(hotspotPopupSelector);
 
   if (open) {

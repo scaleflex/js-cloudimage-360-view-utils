@@ -1,12 +1,11 @@
 import { createHotspotIcon } from './create-hotspot-icon';
-import { createPopupPaper } from './create-popup-paper';
+import { createPopup } from './create-popup';
 
 export const createHotspots = (container, hotspotsProps) => {
   hotspotsProps.forEach((hotspotProps) => {
-    const hotspotConfig = hotspotProps;
-    const { paperProps } = hotspotConfig;
+    const { popupProps } = hotspotProps;
 
-    createPopupPaper(container, hotspotConfig, paperProps);
-    createHotspotIcon(container, hotspotConfig);
+    createPopup(container, hotspotProps, popupProps);
+    createHotspotIcon(container, hotspotProps);
   });
 };
