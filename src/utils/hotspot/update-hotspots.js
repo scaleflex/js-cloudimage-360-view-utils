@@ -8,7 +8,7 @@ import { hideHotspotIcon } from './hide-hotspot-icon';
 
 export const updateHotspots = (container, hotspotsProps, currentImage) => {
   hotspotsProps.forEach((hotspotProps) => {
-    const { paperProps, hotspots } = hotspotProps;
+    const { paperProps, hotspots, initialDimensions } = hotspotProps;
 
     const { anchorID, open } = paperProps;
 
@@ -29,7 +29,7 @@ export const updateHotspots = (container, hotspotsProps, currentImage) => {
     if (currentPosition) {
       const { xCoord = 0, yCoord = 0 } = currentPosition;
 
-      updateHotspotIconPosition(hotspotIcon, xCoord, yCoord);
+      updateHotspotIconPosition(container, initialDimensions, hotspotIcon, xCoord, yCoord);
     } else {
       hideHotspotIcon(hotspotIcon);
     }

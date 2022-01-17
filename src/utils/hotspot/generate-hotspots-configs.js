@@ -10,6 +10,7 @@ export const generateHotspotsConfigs = (hotspotsProps) => {
       title = '',
       newTab = false,
       paperProps = {},
+      initialDimensions = [500, 500],
     } = hotspotProps;
 
     const paperConfig = generatePaperConfig(paperProps);
@@ -22,6 +23,7 @@ export const generateHotspotsConfigs = (hotspotsProps) => {
       url,
       title,
       newTab,
+      initialDimensions,
     };
 
     return hotspotConfig;
