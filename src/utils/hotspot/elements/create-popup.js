@@ -17,6 +17,7 @@ export const createPopup = (container, hotspotConfig, popupProps) => {
   popup.style.minHeight = 16;
   popup.style.minWidth = 16;
   popup.style.cursor = 'initial';
+  popup.onclick = (e) => e.stopPropagation();
 
   if (hotspotVariant === 'link') {
     const hotspotPopupLink = createHotspotPopupLink(hotspotConfig);
