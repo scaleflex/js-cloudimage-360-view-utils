@@ -21,3 +21,4 @@ export { updateHotspots } from './utils/hotspot/update-hotspots';
 export { createHotspots } from './utils/hotspot/elements/create-hotspots';
 export { generateHotspotsConfigs } from './utils/hotspot/generate-hotspots-configs';
 export { isMouseOnHotspot } from './utils/hotspot/is-mouse-on-hotspot';
+export { hideHotspotsIcons } from './utils/hotspot/hide-hotspots-icons';
