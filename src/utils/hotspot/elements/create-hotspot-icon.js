@@ -28,6 +28,8 @@ export const createHotspotIcon = (container, hotspotConfig) => {
   hotspotIcon.addEventListener('mouseenter', mouseEnterHotspot);
   hotspotIcon.addEventListener('mouseleave', mouseLeaveHotspot);
 
+  hotspotIcon.onclick = (e) => e.stopPropagation();
+
   hideHotspotIcon(hotspotIcon);
 
   container.appendChild(hotspotIcon);

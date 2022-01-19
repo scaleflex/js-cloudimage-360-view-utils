@@ -10,6 +10,7 @@ export const generateHotspotsConfigs = (hotspotsProps) => {
       title = '',
       newTab = false,
       popupProps = {},
+      orientation = 'x',
       initialDimensions = [500, 500],
     } = hotspotProps;
 
@@ -24,6 +25,7 @@ export const generateHotspotsConfigs = (hotspotsProps) => {
       title,
       newTab,
       initialDimensions,
+      orientation: orientation.toLowerCase(),
     };
 
     return hotspotConfig;
