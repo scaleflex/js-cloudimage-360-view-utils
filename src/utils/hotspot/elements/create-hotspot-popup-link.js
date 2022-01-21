@@ -8,11 +8,9 @@ export const createHotspotPopupLink = (hotspotConfig) => {
   hyperLink.href = url;
   hyperLink.innerHTML = title;
 
-
   if (newTab) {
     hyperLink.target = '_blank';
   }
-
 
   return hyperLink;
 };

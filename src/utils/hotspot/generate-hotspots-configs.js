@@ -1,3 +1,4 @@
+import { configsErrorHandler } from './configs-error-handler';
 import { generatePopupConfig } from './generate-popup-config';
 
 export const generateHotspotsConfigs = (hotspotsProps) => {
@@ -13,6 +14,8 @@ export const generateHotspotsConfigs = (hotspotsProps) => {
       orientation = 'x',
       initialDimensions = [500, 500],
     } = hotspotProps;
+
+    configsErrorHandler(hotspotProps);
 
     const popupConfig = generatePopupConfig(popupProps);
 

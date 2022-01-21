@@ -24,11 +24,15 @@ export const createPopup = (container, hotspotConfig, popupProps) => {
 
     popup.appendChild(hotspotPopupLink);
   } else {
-    const popupNode = getPopupNode(anchorID);
-    const userPopup = popupNode.cloneNode(true);
+    try {
+      const popupNode = getPopupNode(anchorID);
+      const userPopup = popupNode.cloneNode(true);
 
-    popup.appendChild(userPopup);
-    popupNode.parentNode.removeChild(popupNode);
+      popup.appendChild(userPopup);
+      popupNode.parentNode.removeChild(popupNode);
+    } catch {
+      console.error(`Cloudimage-360: Element with anchorID '${anchorID}' not exist in the DOM`);
+    }
   }
 
   if (arrow) {

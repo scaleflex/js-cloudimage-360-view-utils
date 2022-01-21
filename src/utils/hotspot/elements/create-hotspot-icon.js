@@ -20,6 +20,7 @@ export const createHotspotIcon = (container, hotspotConfig) => {
   };
 
   hotspotIcon.style.position = 'absolute';
+
   hotspotIcon.className = `cloudimage-360-hotspot-${hotspotVariant}-icon ${iconClass}`;
 
   hotspotIcon.setAttribute('data-hotspot-icon-id', anchorID);
