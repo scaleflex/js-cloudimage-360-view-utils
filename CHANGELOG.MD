@@ -25,6 +25,11 @@ Types of changes:
 - ...
 
 -------------
+# 1.0.1 - 2022-01-24
+### ADDED
+- posibility to add hotspots to images (mapping areas per image)
+- show image info (width, height and current image index)
+
 # 1.0.0 - 2021-01-05
 ### ADDED
 - images prepartion and loading happen in the utils
