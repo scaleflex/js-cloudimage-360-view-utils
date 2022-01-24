@@ -1,6 +1,6 @@
 export const configsErrorHandler = (hotspotProps) => {
   const {
-    variant, title, url, popupProps,
+    variant, title, url, popupProps = {},
   } = hotspotProps;
 
   const { anchorID } = popupProps;
