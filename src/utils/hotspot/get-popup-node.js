@@ -1,7 +1,7 @@
-export const getPopupNode = (popupID) => {
+export const getPopupNode = (popupId) => {
   const popupSelector = 'data-CI-360-anchor';
 
-  const popupNode = document.querySelector(`[${popupSelector}=${popupID}]`);
+  const popupNode = document.querySelector(`[${popupSelector}=${popupId}]`);
 
   return popupNode;
 };

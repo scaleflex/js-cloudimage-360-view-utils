@@ -4,12 +4,9 @@ import { generatePopupConfig } from './generate-popup-config';
 export const generateHotspotsConfigs = (hotspotsProps) => {
   const hotspotsConfigs = hotspotsProps.map((hotspotProps) => {
     const {
-      variant = 'link',
+      variant = {},
       hotspots = [],
-      iconClass = '',
-      url = '',
-      title = '',
-      newTab = false,
+      indicatorClass = '',
       popupProps = {},
       orientation = 'x',
       initialDimensions = [500, 500],
@@ -23,10 +20,7 @@ export const generateHotspotsConfigs = (hotspotsProps) => {
       variant,
       popupProps: popupConfig,
       hotspots,
-      iconClass,
-      url,
-      title,
-      newTab,
+      indicatorClass,
       initialDimensions,
       orientation: orientation.toLowerCase(),
     };

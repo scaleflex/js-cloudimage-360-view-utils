@@ -1,17 +1,17 @@
 import { createHotspotPopupLink } from './create-hotspot-popup-link';
-import { getHotspotVariant } from '../get-hotspot-variant';
 import { getPopupNode } from '../get-popup-node';
 import { createPopupArrow } from './create-popup-arrow';
+import { createModalElements } from './create-model-elements';
 
 export const createPopup = (container, hotspotConfig, popupProps) => {
   const { variant } = hotspotConfig;
-  const { popupClass, arrow, anchorID } = popupProps;
-  const hotspotVariant = getHotspotVariant(variant);
+  const { popupClass, arrow, anchorId } = popupProps;
+  const { url, images } = variant;
 
   const popup = document.createElement('div');
 
   popup.className = `cloudimage-360-hotspot-popup ${popupClass}`;
-  popup.setAttribute('data-hotspot-popup-id', anchorID);
+  popup.setAttribute('data-hotspot-popup-id', anchorId);
   popup.setAttribute('data-cloudimage-360-hotspot', '');
 
   popup.style.minHeight = 16;
@@ -19,19 +19,22 @@ export const createPopup = (container, hotspotConfig, popupProps) => {
   popup.style.cursor = 'initial';
   popup.onclick = (e) => e.stopPropagation();
 
-  if (hotspotVariant === 'link') {
-    const hotspotPopupLink = createHotspotPopupLink(hotspotConfig);
+
+  if (images) {
+    createModalElements(variant, container, popup);
+  } else if (url) {
+    const hotspotPopupLink = createHotspotPopupLink(variant);
 
     popup.appendChild(hotspotPopupLink);
   } else {
     try {
-      const popupNode = getPopupNode(anchorID);
+      const popupNode = getPopupNode(anchorId);
       const userPopup = popupNode.cloneNode(true);
 
       popup.appendChild(userPopup);
       popupNode.parentNode.removeChild(popupNode);
     } catch {
-      console.error(`Cloudimage-360: Element with anchorID '${anchorID}' not exist in the DOM`);
+      console.error(`Cloudimage-360: Element with anchorId '${anchorId}' not exist in the DOM`);
     }
   }
 

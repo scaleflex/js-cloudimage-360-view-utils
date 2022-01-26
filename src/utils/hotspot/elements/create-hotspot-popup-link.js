@@ -1,12 +1,12 @@
-export const createHotspotPopupLink = (hotspotConfig) => {
+export const createHotspotPopupLink = (variant) => {
   const {
     url, title, newTab,
-  } = hotspotConfig;
+  } = variant;
 
   const hyperLink = document.createElement('a');
 
   hyperLink.href = url;
-  hyperLink.innerHTML = title;
+  hyperLink.innerText = title;
 
   if (newTab) {
     hyperLink.target = '_blank';
